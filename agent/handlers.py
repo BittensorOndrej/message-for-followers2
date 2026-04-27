@@ -6,7 +6,11 @@ from .messages import MESSAGES
 log = logging.getLogger(__name__)
 
 
-
+def _send_if_no_conversation(user_id: str) -> None:
+    if has_existing_conversation(user_id):
+        log.info("⏭️  Uživatel %s – konverzace již existuje, přeskakuji.", user_id)
+        return
+    send_dm(user_id, MESSAGES["auto_reply"])
 
 
 def handle_new_follower(follower_id: str) -> None:
@@ -26,4 +30,3 @@ def handle_new_comment(
 
 def handle_incoming_dm(sender_id: str, text: str) -> None:
     log.info("📩 Příchozí DM od %s: %.80s", sender_id, text)
-
