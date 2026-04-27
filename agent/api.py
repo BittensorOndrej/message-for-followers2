@@ -3,7 +3,7 @@ import requests
 from .config import Config
 
 log = logging.getLogger(__name__)
-_BASE = "https://graph.facebook.com/v19.0"
+_BASE = "https://graph.instagram.com/v21.0"
 
 
 def has_existing_conversation(user_id: str) -> bool:
