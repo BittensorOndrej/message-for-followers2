@@ -57,11 +57,7 @@ def _dispatch(change: dict) -> None:
     field = change.get("field")
     value = change.get("value", {})
 
-    if field == "follow":
-        follower_id = value.get("sender_id") or value.get("id")
-        if follower_id:
-            handle_new_follower(str(follower_id))
-
+    
     elif field == "comments":
         commenter_id = value.get("from", {}).get("id") or value.get("sender_id")
         comment_id   = value.get("id")
