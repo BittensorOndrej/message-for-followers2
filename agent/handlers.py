@@ -10,10 +10,6 @@ def _send_if_no_conversation(user_id: str) -> None:
     send_dm(user_id, MESSAGES["auto_reply"])
 
 
-def handle_new_follower(follower_id: str) -> None:
-    log.info("👤 Nový follower: %s", follower_id)
-    _send_if_no_conversation(follower_id)
-
 
 def handle_new_comment(
     commenter_id: str,
