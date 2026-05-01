@@ -26,7 +26,7 @@ def handle_incoming_dm(sender_id: str, text: str) -> None:
     log.info("📩 Příchozí DM od %s: %.80s", sender_id, text)
     
     # Klíčová slova která spustí automatickou odpověď
-    KEYWORDS = ["cena", "info", "jak", "kde"]
+    KEYWORDS = ["flaer"]
     
     text_lower = text.lower()
     if any(keyword in text_lower for keyword in KEYWORDS):
